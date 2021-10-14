@@ -5,7 +5,7 @@ import {
 import Chat from './pages/Chat';
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
+import SignUp from './pages/SignUp';
 import { auth } from './services/firebase';
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
@@ -30,8 +30,6 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
   )
 }
 
-
-
 class App extends Component{
   constructor(){
     super();
@@ -48,7 +46,7 @@ render() {
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <PrivateRoute path="/chat" authenticated={this.state.authenticated} component={Chat}></PrivateRoute>
-        <PublicRoute path="/signup" authenticated={this.state.authenticated} component={Signup}></PublicRoute>
+        <PublicRoute path="/signup" authenticated={this.state.authenticated} component={SignUp}></PublicRoute>
         <PublicRoute path="/login" authenticated={this.state.authenticated} component={Login}></PublicRoute>
       </Switch>
     </Router>
